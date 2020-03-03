@@ -12,18 +12,18 @@ function getInfo(user){
 }*/
 
 const TarjetaFruta = (props) => (
-    <div>
+    <div className={'container'}>
         <h3>{props.name}</h3>
         <hr/>
-        <p>Descripción...</p>
+        <p>Precio ${props.price}</p>
     </div>
 )
 
 const App = () => (
     <div>
-        <TarjetaFruta name='Sandia'/>
-        <TarjetaFruta name='Kiwi'/>
-        <TarjetaFruta name='Maracuya'/>
+        <TarjetaFruta name={'Sandia'} price={2.00}/>
+        <TarjetaFruta name={'Kiwi'} price={5.4}/>
+        <TarjetaFruta name={'Maracuya'} price={6.5}/>
     </div>
 )
 
