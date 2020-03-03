@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/*const user1 = {
+    name: 'Yamid Cueto',
+    age: 31,
+    country: 'Colombia'
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function getInfo(user){
+    return `Hola soy ${user1.name} y tengo ${user1.age} años y el doble de mi edad ${user1.age*2}`
+}*/
+
+const TarjetaFruta = (props) => (
+    <div>
+        <h3>{props.name}</h3>
+        <hr/>
+        <p>Descripción...</p>
+    </div>
+)
+
+const App = () => (
+    <div>
+        <TarjetaFruta name='Sandia'/>
+        <TarjetaFruta name='Kiwi'/>
+        <TarjetaFruta name='Maracuya'/>
+    </div>
+)
+
+
+ReactDOM.render(<App/>, document.getElementById('root'));
