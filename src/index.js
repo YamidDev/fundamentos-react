@@ -7,8 +7,13 @@ class TarjetaFruta extends React.Component {
         this.state = {
             cantidad: 0
         }
-        this.agregar = this.agregar.bind(this)
-        this.eliminar = this.eliminar.bind(this)
+        const METHODS = [
+            'agregar', 'eliminar', 'limpiar'
+        ]
+
+        METHODS.forEach((method)=>{
+            this[method] = this[method].bind(this)
+        })
     }
     agregar () {
         this.setState({
@@ -21,6 +26,12 @@ class TarjetaFruta extends React.Component {
             cantidad: this.state.cantidad - 1
         })
     }
+
+    limpiar(){
+        this.setState({
+            cantidad: this.state.cantidad = 0
+        })
+    }
     render() {
         return (
             <div className={'col-md-4'}>
@@ -29,11 +40,15 @@ class TarjetaFruta extends React.Component {
                 <button type={'button'} className={'btn btn-primary'} onClick={this.agregar}
                         style={{marginRight: '5px'}}>
                     <b><i className={'material-icons'}>add_shopping_cart</i></b></button>
-                <button type={'button'} className={'btn btn-danger'} onClick={this.eliminar}>
+                <button type={'button'} className={'btn btn-danger'} onClick={this.eliminar}
+                        style={{marginRight: '5px'}}>
                     <b><i className={'material-icons'}>remove_shopping_cart</i></b>
                 </button>
+                <button type={'button'} className={'btn btn-secondary'} onClick={this.limpiar}>
+                    <b><i className={'material-icons'}>shopping_cart</i></b>
+                </button>
                 <hr/>
-                <p>${this.props.price}</p>
+                <p>Precio Unitario: ${this.props.price}</p>
             </div>
         )
     }
@@ -41,7 +56,13 @@ class TarjetaFruta extends React.Component {
 
 
 const App = () => (
-    <div className={'container my-5'}>
+    <div className={'container my-5 text-center'}>
+        <div className="row">
+            <div className="col-md-12">
+                <h1 className={'text-center'}>Agrega y remueve productos</h1>
+                <hr/>
+            </div>
+        </div>
         <div className={'row'}>
             <TarjetaFruta name={'Sandia'} price={2.00}/>
             <TarjetaFruta name={'Kiwi'} price={5.4}/>
