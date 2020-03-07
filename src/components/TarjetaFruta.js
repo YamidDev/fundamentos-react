@@ -42,6 +42,8 @@ class TarjetaFruta extends React.Component {
                         </button>
                         <hr/>
                         <p className={'card-text'}>Precio Unitario: ${this.props.price}</p>
+                        <hr/>
+                        <p className={'card-text'}>Valor Total: <b>${Math.round(this.props.price * this.state.cantidad)}</b></p>
                     </div>
                 </div>
             </div>
