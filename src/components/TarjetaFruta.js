@@ -1,4 +1,5 @@
 import React from "react";
+import './TarjetaFruta.css';
 
 class TarjetaFruta extends React.Component {
     state = {
@@ -16,18 +17,11 @@ class TarjetaFruta extends React.Component {
         cantidad: this.state.cantidad = 0
     })
     render() {
-
-        const styles = {
-            border: '1px solid black',
-            marginBottom: '1em',
-            borderRadius: '0.5em',
-            padding: '1em',
-            background: this.state.cantidad > 0 ? 'green' : '#FFF'
-        }
-
+        const hasItems = this.state.cantidad > 0
+        const clases = `TarjetaFruta ${ hasItems ? 'TarjetaFruta-activa': ''}`
         return (
             <div className={'col-md-4 col-xs-12 col-sm-12'}>
-                <div className={'card'} style={styles}>
+                <div className={`card ${clases}`}>
                     <div className={'card-body'}>
                         <h3 className={'card-title'}>{this.props.name}</h3>
                         <div>Cantidad: {this.state.cantidad}</div>
@@ -42,9 +36,9 @@ class TarjetaFruta extends React.Component {
                             <b><i className={'material-icons'}>shopping_cart</i></b>
                         </button>
                         <hr/>
-                        <p className={'card-text'}>Precio Unitario: ${this.props.price}</p>
+                        <p className={'card-text'}>Precio Unitario: $ {this.props.price}</p>
                         <hr/>
-                        <p className={'card-text'}>Valor Total: <b>${Math.round(this.props.price * this.state.cantidad)}</b></p>
+                        <p className={'card-text'}>Valor Total: <b>$ {Math.round(this.props.price * this.state.cantidad)}</b></p>
                     </div>
                 </div>
             </div>
