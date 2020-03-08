@@ -21,7 +21,8 @@ class TarjetaFruta extends React.Component {
             border: '1px solid black',
             marginBottom: '1em',
             borderRadius: '0.5em',
-            padding: '1em'
+            padding: '1em',
+            background: this.state.cantidad > 0 ? 'green' : '#FFF'
         }
 
         return (
