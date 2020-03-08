@@ -1,5 +1,5 @@
 import React from "react";
-import './TarjetaFruta.css';
+import styles from './TarjetaFruta.module.css';
 
 class TarjetaFruta extends React.Component {
     state = {
@@ -18,10 +18,10 @@ class TarjetaFruta extends React.Component {
     })
     render() {
         const hasItems = this.state.cantidad > 0
-        const clases = `TarjetaFruta ${ hasItems ? 'TarjetaFruta-activa': ''}`
+        const clases = `${styles.card} ${hasItems ? styles['card-active']: ''}`
         return (
             <div className={'col-md-4 col-xs-12 col-sm-12'}>
-                <div className={`card ${clases}`}>
+                <div className={`${clases}`}>
                     <div className={'card-body'}>
                         <h3 className={'card-title'}>{this.props.name}</h3>
                         <div>Cantidad: {this.state.cantidad}</div>
